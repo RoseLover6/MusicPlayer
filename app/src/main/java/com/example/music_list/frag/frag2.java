@@ -20,16 +20,17 @@ import androidx.fragment.app.Fragment;
 public class frag2 extends Fragment {
     private View view;
     //创建歌曲的String数组和歌手图片的int数组
-    public String[] name={"周杰伦","陈奕迅","林俊杰"};
-    public static int[] icons={R.drawable.jay,R.drawable.eason,R.drawable.jj};
+    public String[] name = {"周杰伦", "陈奕迅", "林俊杰"};
+    public static int[] icons = {R.drawable.jay, R.drawable.eason, R.drawable.jj};
+
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //绑定布局，只不过这里是用inflate()方法
-        view=inflater.inflate(R.layout.music_list,null);
+        view = inflater.inflate(R.layout.music_list, null);
         //创建listView列表并且绑定控件
-        ListView listView=view.findViewById(R.id.lv);
+        ListView listView = view.findViewById(R.id.lv);
         //实例化一个适配器
-        frag2.MyBaseAdapter adapter=new frag2.MyBaseAdapter();
+        frag2.MyBaseAdapter adapter = new frag2.MyBaseAdapter();
         //列表设置适配器
         listView.setAdapter(adapter);
         //列表元素的点击监听器
@@ -37,25 +38,25 @@ public class frag2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //创建Intent对象，参数就是从frag1跳转到MusicActivity
-                Intent intent=new Intent(frag2.this.getContext(), SingerActivity.class);
-                Bundle bundle =new Bundle();
-                if(position==0){
+                Intent intent = new Intent(frag2.this.getContext(), SingerActivity.class);
+                Bundle bundle = new Bundle();
+                if (position == 0) {
                     //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name",name[position]);
-                    intent.putExtra("position",String.valueOf(position));
-                    bundle.putInt("number",1);
+                    intent.putExtra("name", name[position]);
+                    intent.putExtra("position", String.valueOf(position));
+                    bundle.putInt("number", 1);
                 }
-                if(position==1){
+                if (position == 1) {
                     //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name",name[position]);
-                    intent.putExtra("position",String.valueOf(position));
-                    bundle.putInt("number",3);
+                    intent.putExtra("name", name[position]);
+                    intent.putExtra("position", String.valueOf(position));
+                    bundle.putInt("number", 3);
                 }
-                if(position==2){
+                if (position == 2) {
                     //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name",name[position]);
-                    intent.putExtra("position",String.valueOf(position));
-                    bundle.putInt("number",2);
+                    intent.putExtra("name", name[position]);
+                    intent.putExtra("position", String.valueOf(position));
+                    bundle.putInt("number", 2);
                 }
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -63,21 +64,30 @@ public class frag2 extends Fragment {
         });
         return view;
     }
-    //这里是创建一个自定义适配器，可以作为模板
+
+    //这里是创建一个自定义适配器
     class MyBaseAdapter extends BaseAdapter {
         @Override
-        public int getCount(){return  name.length;}
-        @Override
-        public Object getItem(int i){return name[i];}
-        @Override
-        public long getItemId(int i){return i;}
+        public int getCount() {
+            return name.length;
+        }
 
         @Override
-        public View getView(int i ,View convertView, ViewGroup parent) {
+        public Object getItem(int i) {
+            return name[i];
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override
+        public View getView(int i, View convertView, ViewGroup parent) {
             //绑定好VIew，然后绑定控件
-            View view=View.inflate(frag2.this.getContext(),R.layout.item_layout,null);
-            TextView tv_name=view.findViewById(R.id.item_name);
-            ImageView iv=view.findViewById(R.id.iv);
+            View view = View.inflate(frag2.this.getContext(), R.layout.item_layout, null);
+            TextView tv_name = view.findViewById(R.id.item_name);
+            ImageView iv = view.findViewById(R.id.iv);
             //设置控件显示的内容，就是获取的歌曲名和歌手图片
             tv_name.setText(name[i]);
             iv.setImageResource(icons[i]);
@@ -85,4 +95,5 @@ public class frag2 extends Fragment {
         }
     }
 }
+
 

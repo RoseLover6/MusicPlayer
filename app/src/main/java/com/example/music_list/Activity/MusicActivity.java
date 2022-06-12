@@ -27,11 +27,11 @@ import com.example.music_list.frag.frag1;
 import static java.lang.Integer.parseInt;
 
 public class MusicActivity extends AppCompatActivity implements View.OnClickListener {
+    public String[] musicName = {"knowknow——Mr.Bentley", "刘聪——Hey kong", "梨冻紧/Wiz_H——Follow", "刘聪——单身公寓", "SHE——你曾是少年",
+            "TWICE——Feel Special", "房东的猫——New Boy", "高进——下雪哈尔滨", "刘大拿——匿名的朋友", "True Damages——GIANT", "TWICE——TT"};
+    public static int[] icons = {R.drawable.knowknow, R.drawable.liucong, R.drawable.follow, R.drawable.hotel, R.drawable.young,
+            R.drawable.feelspecial, R.drawable.newboy, R.drawable.snowhaerbin, R.drawable.anoymousfriend, R.drawable.giant, R.drawable.tt};
     //进度条
-    public String[] musicName = {"knowknow——Mr.Bentley","刘聪——Hey kong","梨冻紧/Wiz_H——Follow","刘聪——单身公寓","SHE——你曾是少年",
-            "TWICE——Feel Special","房东的猫——New Boy","高进——下雪哈尔滨","刘大拿——匿名的朋友","True Damages——GIANT","TWICE——TT"};
-    public static int[] icons = {R.drawable.knowknow,R.drawable.liucong,R.drawable.follow,R.drawable.hotel,R.drawable.young,
-            R.drawable.feelspecial,R.drawable.newboy,R.drawable.snowhaerbin,R.drawable.anoymousfriend,R.drawable.giant,R.drawable.tt};
     private static SeekBar sb;
     private static TextView tv_progress, tv_total, name_song;
     //动画
@@ -79,7 +79,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         bindService(intent2, conn, BIND_AUTO_CREATE);//绑定服务
         //为滑动条添加事件监听，每个控件不同果然点击事件方法名都不同
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            //这一行注解是保证API在KITKAT以上的模拟器才能顺利运行，也就是19以上
+            //这一行注解是保证API在KITKAT以上的模拟器才能顺利运行
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -88,6 +88,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
                     animator.pause();//停止播放动画
                 }
             }
+
             @Override
             //滑动条开始滑动时调用
             public void onStartTrackingTouch(SeekBar seekBar) {

@@ -16,7 +16,7 @@ import com.example.music_list.frag.frag2;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //创建需要用到的控件的变量
-    private TextView tv1, tv2,tv3;
+    private TextView tv1, tv2, tv3;
     private FragmentManager fm;
     private FragmentTransaction ft;
 

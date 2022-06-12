@@ -3,6 +3,7 @@ package com.example.music_list.Activity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+
 import com.example.music_list.R;
 
 public class StartActivity extends Activity {

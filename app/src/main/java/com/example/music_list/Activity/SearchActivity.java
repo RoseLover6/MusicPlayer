@@ -26,11 +26,11 @@ import com.example.music_list.Service.SearchService;
 import static java.lang.Integer.parseInt;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
+    public String[] musicName = {"knowknow——Mr.Bentley", "刘聪——Hey kong", "梨冻紧/Wiz_H——Follow", "刘聪——单身公寓", "SHE——你曾是少年",
+            "TWICE——Feel Special", "房东的猫——New Boy", "高进——下雪哈尔滨", "刘大拿——匿名的朋友", "True Damages——GIANT", "TWICE——TT"};
+    public static int[] icons = {R.drawable.knowknow, R.drawable.liucong, R.drawable.follow, R.drawable.hotel, R.drawable.young,
+            R.drawable.feelspecial, R.drawable.newboy, R.drawable.snowhaerbin, R.drawable.anoymousfriend, R.drawable.giant, R.drawable.tt};
     //进度条
-    public String[] musicName = {"knowknow——Mr.Bentley","刘聪——Hey kong","梨冻紧/Wiz_H——Follow","刘聪——单身公寓","SHE——你曾是少年",
-            "TWICE——Feel Special","房东的猫——New Boy","高进——下雪哈尔滨","刘大拿——匿名的朋友","True Damages——GIANT","TWICE——TT"};
-    public static int[] icons = {R.drawable.knowknow,R.drawable.liucong,R.drawable.follow,R.drawable.hotel,R.drawable.young,
-            R.drawable.feelspecial,R.drawable.newboy,R.drawable.snowhaerbin,R.drawable.anoymousfriend,R.drawable.giant,R.drawable.tt};
     private static SeekBar sb;
     private static TextView tv_progress, tv_total, name_song;
     //动画
@@ -88,6 +88,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     animator.pause();//停止播放动画
                 }
             }
+
             @Override
             //滑动条开始滑动时调用
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -106,8 +107,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         ImageView iv_music = (ImageView) findViewById(R.id.iv_music);
         String music = intent1.getStringExtra("music");
         //praseInt()就是将字符串变成整数类型
-        for(i=0;i<=10;i++){
-            if(music.equals(musicName[i])){
+        for (i = 0; i <= 10; i++) {
+            if (music.equals(musicName[i])) {
                 break;
             }
         }
@@ -192,8 +193,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         String music1 = intent1.getStringExtra("music");
-        for(i=0;i<=10;i++){
-            if(music1.equals(musicName[i])){
+        for (i = 0; i <= 10; i++) {
+            if (music1.equals(musicName[i])) {
                 break;
             }
         }
@@ -258,7 +259,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 unbind(isUnbind);
                 isUnbind = true;
                 finish();
-                Intent intent = new Intent(SearchActivity.this,SerachMusicActivity.class);
+                Intent intent = new Intent(SearchActivity.this, SerachMusicActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -270,6 +271,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         unbind(isUnbind);//解绑服务
     }
 }
+
 
 
 

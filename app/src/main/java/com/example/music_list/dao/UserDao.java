@@ -70,16 +70,17 @@ public class UserDao {
     //判断账号是否存在
     public boolean isExist(String account) {
         Cursor cursor = db.query("user", null, "account = ?",
-                new String[] {account}, null, null, null);
+                new String[]{account}, null, null, null);
         return cursor != null && cursor.getCount() > 0;
     }
 
     //根据账号来查找用户密码，登录时校验密码
     public String getPassword(String account) {
         Cursor cursor = db.query("user", null, "account = ?",
-                new String[] {account}, null, null, null);
+                new String[]{account}, null, null, null);
         cursor.moveToFirst();
         @SuppressLint("Range") String password = cursor.getString(cursor.getColumnIndex("password"));
         return password;
     }
 }
+

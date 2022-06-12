@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void initView() {
         //去除标题栏
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar!= null){
+        if (actionBar != null) {
             actionBar.hide();
         }
         //绑定控件
