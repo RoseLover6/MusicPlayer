@@ -35,7 +35,7 @@
         android:id="@+id/sb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#000000"/>
+        android:background="#18073E"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
