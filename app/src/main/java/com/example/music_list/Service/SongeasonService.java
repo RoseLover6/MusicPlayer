@@ -61,7 +61,7 @@ public class SongeasonService extends Service {
                     SongeasonActivity.handler.sendMessage(msg);
                 }
             };
-            //开始计时任务后的5毫秒，第一次执行task任务，以后每500毫秒（0.5s）执行一次
+            //开始计时任务后的1毫秒，第一次执行task任务，以后每500毫秒（0.5s）执行一次
             timer.schedule(task, 1, 500);
         }
     }

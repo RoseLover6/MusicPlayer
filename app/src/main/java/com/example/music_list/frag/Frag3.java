@@ -1,6 +1,5 @@
 package com.example.music_list.frag;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,15 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.music_list.R;
-import com.example.music_list.Activity.SingerActivity;
+import com.example.music_list.Activity.SongActivity;
 
 import androidx.fragment.app.Fragment;
 
-public class frag2 extends Fragment {
+public class Frag3 extends Fragment {
     private View view;
     //创建歌曲的String数组和歌手图片的int数组
-    public String[] name = {"周杰伦", "陈奕迅", "林俊杰"};
-    public static int[] icons = {R.drawable.jay, R.drawable.eason, R.drawable.jj};
+    public String[] name = {"龙拳", "夜曲", "爱在西元前", "告白气球"};
+    public static int[] icons = {R.drawable.jay1, R.drawable.jay2, R.drawable.jay3, R.drawable.jay4};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class frag2 extends Fragment {
         //创建listView列表并且绑定控件
         ListView listView = view.findViewById(R.id.lv);
         //实例化一个适配器
-        frag2.MyBaseAdapter adapter = new frag2.MyBaseAdapter();
+        MyBaseAdapter adapter = new MyBaseAdapter();
         //列表设置适配器
         listView.setAdapter(adapter);
         //列表元素的点击监听器
@@ -38,27 +37,11 @@ public class frag2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //创建Intent对象，参数就是从frag1跳转到MusicActivity
-                Intent intent = new Intent(frag2.this.getContext(), SingerActivity.class);
-                Bundle bundle = new Bundle();
-                if (position == 0) {
-                    //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name", name[position]);
-                    intent.putExtra("position", String.valueOf(position));
-                    bundle.putInt("number", 1);
-                }
-                if (position == 1) {
-                    //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name", name[position]);
-                    intent.putExtra("position", String.valueOf(position));
-                    bundle.putInt("number", 3);
-                }
-                if (position == 2) {
-                    //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name", name[position]);
-                    intent.putExtra("position", String.valueOf(position));
-                    bundle.putInt("number", 2);
-                }
-                intent.putExtras(bundle);
+                Intent intent = new Intent(Frag3.this.getContext(), SongActivity.class);
+                //将歌曲名和歌曲的下标存入Intent对象
+                intent.putExtra("name", name[position]);
+                intent.putExtra("position", String.valueOf(position));
+                //开始跳转
                 startActivity(intent);
             }
         });
@@ -85,7 +68,7 @@ public class frag2 extends Fragment {
         @Override
         public View getView(int i, View convertView, ViewGroup parent) {
             //绑定好VIew，然后绑定控件
-            View view = View.inflate(frag2.this.getContext(), R.layout.item_layout, null);
+            View view = View.inflate(Frag3.this.getContext(), R.layout.item_layout, null);
             TextView tv_name = view.findViewById(R.id.item_name);
             ImageView iv = view.findViewById(R.id.iv);
             //设置控件显示的内容，就是获取的歌曲名和歌手图片
@@ -95,5 +78,4 @@ public class frag2 extends Fragment {
         }
     }
 }
-
 

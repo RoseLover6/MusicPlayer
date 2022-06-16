@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 User user = new User(acc, pass);
                 dao = new UserDao(getApplicationContext());
                 dao.open();
-                if (dao.find(user) == true) {
+                if (dao.find(user)) {
                     Toast.makeText(RegisterActivity.this, "账号已存在", Toast.LENGTH_SHORT).show();
                 } else {
                     dao.addUser(user);

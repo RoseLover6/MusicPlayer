@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.music_list.R;
-import com.example.music_list.frag.frag3;
-import com.example.music_list.frag.frag4;
-import com.example.music_list.frag.frag5;
+import com.example.music_list.frag.Frag3;
+import com.example.music_list.frag.Frag4;
+import com.example.music_list.frag.Frag5;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -29,19 +29,19 @@ public class SingerActivity extends AppCompatActivity {
         //fm可以理解为Fragment显示的管理者，ft就是它的改变者
         ft = fm.beginTransaction();
         //默认情况下就显示frag3
-        ft.replace(R.id.content2, new frag3());
+        ft.replace(R.id.content2, new Frag3());
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         //切换选项卡
         switch (bundle.getInt("number")) {
             case 1:
-                ft.replace(R.id.content2, new frag3());
+                ft.replace(R.id.content2, new Frag3());
                 break;
             case 2:
-                ft.replace(R.id.content2, new frag4());
+                ft.replace(R.id.content2, new Frag4());
                 break;
             case 3:
-                ft.replace(R.id.content2, new frag5());
+                ft.replace(R.id.content2, new Frag5());
                 break;
             default:
                 break;

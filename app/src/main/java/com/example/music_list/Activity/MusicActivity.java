@@ -4,14 +4,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -22,7 +23,7 @@ import android.widget.TextView;
 
 import com.example.music_list.R;
 import com.example.music_list.Service.MusicService;
-import com.example.music_list.frag.frag1;
+import com.example.music_list.frag.Frag1;
 
 import static java.lang.Integer.parseInt;
 
@@ -108,7 +109,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         String position = intent1.getStringExtra("position");
         //praseInt()就是将字符串变成整数类型
         int i = parseInt(position);
-        iv_music.setImageResource(frag1.icons[i]);
+        iv_music.setImageResource(Frag1.icons[i]);
         //rotation和0f,360.0f就设置了动画是从0°旋转到360°
         animator = ObjectAnimator.ofFloat(iv_music, "rotation", 0f, 360.0f);
         animator.setDuration(10000);//动画旋转一周的时间为10秒
@@ -116,9 +117,10 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         animator.setRepeatCount(-1);//-1表示设置动画无限循环
     }
 
-    //handler机制，可以理解为线程间的通信，我获取到一个信息，然后把这个信息告诉你，就这么简单
-    public static Handler handler = new Handler() {//创建消息处理器对象
+    //handler机制，可以理解为线程间的通信
+    public static Handler handler = new Handler(Looper.myLooper()) {//创建消息处理器对象
         //在主线程中处理从子线程发送过来的消息
+        @SuppressLint("SetTextI18n")
         @Override
         public void handleMessage(Message msg) {
             Bundle bundle = msg.getData();//获取从子线程发送过来的音乐播放进度
@@ -185,6 +187,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onClick(View v) {

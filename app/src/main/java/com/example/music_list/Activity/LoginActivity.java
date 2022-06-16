@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 String pass = et_password.getText().toString().trim();
                 dao = new UserDao(getApplicationContext());
                 dao.open();
-                if (dao.isExist(acc) == false) {
+                if (!(dao.isExist(acc))) {
                     Toast.makeText(LoginActivity.this, "账号不存在，请先注册！",
                             Toast.LENGTH_SHORT).show();
                 } else {

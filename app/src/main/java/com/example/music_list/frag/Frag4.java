@@ -12,15 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.music_list.R;
-import com.example.music_list.Activity.SongeasonActivity;
+import com.example.music_list.Activity.SongjjActivity;
 
 import androidx.fragment.app.Fragment;
 
-public class frag5 extends Fragment {
+public class Frag4 extends Fragment {
     private View view;
     //创建歌曲的String数组和歌手图片的int数组
-    public String[] name = {"十年", "淘汰", "爱情转移", "孤勇者"};
-    public static int[] icons = {R.drawable.eason1, R.drawable.eason2, R.drawable.eason3, R.drawable.eason4};
+    public String[] name = {"Always Online", "修炼爱情", "爱笑的眼睛", "江南"};
+    public static int[] icons = {R.drawable.jj1, R.drawable.jj2, R.drawable.jj3, R.drawable.jj4};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class frag5 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //创建Intent对象，参数就是从frag1跳转到MusicActivity
-                Intent intent = new Intent(frag5.this.getContext(), SongeasonActivity.class);
+                Intent intent = new Intent(Frag4.this.getContext(), SongjjActivity.class);
                 //将歌曲名和歌曲的下标存入Intent对象
                 intent.putExtra("name", name[position]);
                 intent.putExtra("position", String.valueOf(position));
@@ -68,7 +68,7 @@ public class frag5 extends Fragment {
         @Override
         public View getView(int i, View convertView, ViewGroup parent) {
             //绑定好VIew，然后绑定控件
-            View view = View.inflate(frag5.this.getContext(), R.layout.item_layout, null);
+            View view = View.inflate(Frag4.this.getContext(), R.layout.item_layout, null);
             TextView tv_name = view.findViewById(R.id.item_name);
             ImageView iv = view.findViewById(R.id.iv);
             //设置控件显示的内容，就是获取的歌曲名和歌手图片
