@@ -1,6 +1,5 @@
 package com.example.music_list.frag;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,16 +11,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.music_list.Activity.MusicActivity;
 import com.example.music_list.R;
-import com.example.music_list.Activity.SingerActivity;
 
 import androidx.fragment.app.Fragment;
 
-public class Frag2 extends Fragment {
+public class FragOne extends Fragment {
     private View view;
     //创建歌曲的String数组和歌手图片的int数组
-    public String[] name = {"周杰伦", "陈奕迅", "林俊杰"};
-    public static int[] icons = {R.drawable.jay, R.drawable.eason, R.drawable.jj};
+    public String[] name = {"knowknow——Mr.Bentley", "刘聪——Hey kong", "梨冻紧/Wiz_H——Follow", "刘聪——单身公寓", "SHE——你曾是少年",
+            "TWICE——Feel Special", "房东的猫——New Boy", "高进——下雪哈尔滨", "刘大拿——匿名的朋友", "True Damages——GIANT", "TWICE——TT"};
+    public static int[] icons = {R.drawable.knowknow, R.drawable.liucong, R.drawable.follow, R.drawable.hotel, R.drawable.young,
+            R.drawable.feelspecial, R.drawable.newboy, R.drawable.snowhaerbin, R.drawable.anoymousfriend, R.drawable.giant, R.drawable.tt};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class Frag2 extends Fragment {
         //创建listView列表并且绑定控件
         ListView listView = view.findViewById(R.id.lv);
         //实例化一个适配器
-        Frag2.MyBaseAdapter adapter = new Frag2.MyBaseAdapter();
+        FragOne.MyBaseAdapter adapter = new FragOne.MyBaseAdapter();
         //列表设置适配器
         listView.setAdapter(adapter);
         //列表元素的点击监听器
@@ -38,34 +39,18 @@ public class Frag2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //创建Intent对象，参数就是从frag1跳转到MusicActivity
-                Intent intent = new Intent(Frag2.this.getContext(), SingerActivity.class);
-                Bundle bundle = new Bundle();
-                if (position == 0) {
-                    //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name", name[position]);
-                    intent.putExtra("position", String.valueOf(position));
-                    bundle.putInt("number", 1);
-                }
-                if (position == 1) {
-                    //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name", name[position]);
-                    intent.putExtra("position", String.valueOf(position));
-                    bundle.putInt("number", 3);
-                }
-                if (position == 2) {
-                    //将歌曲名和歌曲的下标存入Intent对象
-                    intent.putExtra("name", name[position]);
-                    intent.putExtra("position", String.valueOf(position));
-                    bundle.putInt("number", 2);
-                }
-                intent.putExtras(bundle);
+                Intent intent = new Intent(FragOne.this.getContext(), MusicActivity.class);
+                //将歌曲名和歌曲的下标存入Intent对象
+                intent.putExtra("name", name[position]);
+                intent.putExtra("position", String.valueOf(position));
+                //开始跳转
                 startActivity(intent);
             }
         });
         return view;
     }
 
-    //这里是创建一个自定义适配器
+    //自定义适配器
     class MyBaseAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -85,7 +70,7 @@ public class Frag2 extends Fragment {
         @Override
         public View getView(int i, View convertView, ViewGroup parent) {
             //绑定好VIew，然后绑定控件
-            View view = View.inflate(Frag2.this.getContext(), R.layout.item_layout, null);
+            View view = View.inflate(FragOne.this.getContext(), R.layout.item_layout, null);
             TextView tv_name = view.findViewById(R.id.item_name);
             ImageView iv = view.findViewById(R.id.iv);
             //设置控件显示的内容，就是获取的歌曲名和歌手图片
@@ -94,6 +79,8 @@ public class Frag2 extends Fragment {
             return view;
         }
     }
+
 }
+
 
 

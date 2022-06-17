@@ -112,7 +112,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             }
         }
-        iv_music.setImageResource(SerachMusicActivity.icons[i]);
+        iv_music.setImageResource(SearchMusicActivity.icons[i]);
         //rotation和0f,360.0f就设置了动画是从0°旋转到360°
         animator = ObjectAnimator.ofFloat(iv_music, "rotation", 0f, 360.0f);
         animator.setDuration(10000);//动画旋转一周的时间为10秒
@@ -259,7 +259,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 unbind(isUnbind);
                 isUnbind = true;
                 finish();
-                Intent intent = new Intent(SearchActivity.this, SerachMusicActivity.class);
+                Intent intent = new Intent(SearchActivity.this, SearchMusicActivity.class);
                 startActivity(intent);
                 break;
         }

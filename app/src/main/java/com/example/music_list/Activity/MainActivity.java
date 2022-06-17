@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.music_list.R;
-import com.example.music_list.frag.Frag1;
-import com.example.music_list.frag.Frag2;
+import com.example.music_list.frag.FragOne;
+import com.example.music_list.frag.FragTwo;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //创建需要用到的控件的变量
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SerachMusicActivity.class);
+                Intent intent = new Intent(MainActivity.this, SearchMusicActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //fm可以理解为Fragment显示的管理者，ft就是它的改变者
         ft = fm.beginTransaction();
         //默认情况下就显示frag1
-        ft.replace(R.id.content, new Frag1());
+        ft.replace(R.id.content, new FragOne());
         //提交改变的内容
         ft.commit();
     }
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //切换选项卡
         switch (v.getId()) {
             case R.id.menu1:
-                ft.replace(R.id.content, new Frag1());
+                ft.replace(R.id.content, new FragOne());
                 break;
             case R.id.menu2:
-                ft.replace(R.id.content, new Frag2());
+                ft.replace(R.id.content, new FragTwo());
                 break;
             default:
                 break;

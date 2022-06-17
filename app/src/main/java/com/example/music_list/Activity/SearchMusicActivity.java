@@ -12,7 +12,7 @@ import com.example.music_list.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SerachMusicActivity extends AppCompatActivity {
+public class SearchMusicActivity extends AppCompatActivity {
     private View view;
     int flag = 0;
     //创建歌曲的String数组和歌手图片的int数组
@@ -40,10 +40,10 @@ public class SerachMusicActivity extends AppCompatActivity {
                     }
                 }
                 if (flag == 0) {
-                    Toast.makeText(SerachMusicActivity.this, "您搜索的歌曲不存在",
+                    Toast.makeText(SearchMusicActivity.this, "您搜索的歌曲不存在",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(SerachMusicActivity.this, SearchActivity.class);
+                    Intent intent = new Intent(SearchMusicActivity.this, SearchActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("music", textView.getText().toString());
                     intent.putExtras(bundle);

@@ -45,7 +45,7 @@
         <activity android:name=".Activity.SongjjActivity"/>
         <activity android:name=".Activity.SongeasonActivity"/>
         <activity android:name=".Activity.LoginActivity"/>
-        <activity android:name=".Activity.SerachMusicActivity"/>
+        <activity android:name=".Activity.SearchMusicActivity"/>
         <activity android:name=".Activity.SearchActivity"/>
         <service android:name=".Service.SearchService"
             android:enabled="true"

@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.example.music_list.R;
 import com.example.music_list.Service.SongService;
-import com.example.music_list.frag.Frag3;
+import com.example.music_list.frag.FragThree;
 
 import static java.lang.Integer.parseInt;
 
@@ -104,7 +104,7 @@ public class SongActivity extends AppCompatActivity implements View.OnClickListe
         String position = intent1.getStringExtra("position");
         //praseInt()就是将字符串变成整数类型
         int i = parseInt(position);
-        iv_music.setImageResource(Frag3.icons[i]);
+        iv_music.setImageResource(FragThree.icons[i]);
         //rotation和0f,360.0f就设置了动画是从0°旋转到360°
         animator = ObjectAnimator.ofFloat(iv_music, "rotation", 0f, 360.0f);
         animator.setDuration(10000);//动画旋转一周的时间为10秒
