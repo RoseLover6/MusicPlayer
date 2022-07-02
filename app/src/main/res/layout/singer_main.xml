@@ -7,11 +7,13 @@
     tools:context=".Activity.MainActivity"
     android:orientation="vertical"
     android:background="@drawable/back2">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp">
+
         <TextView
             android:id="@+id/menu3"
             android:layout_width="0dp"
@@ -21,7 +23,9 @@
             android:text="歌手歌曲"
             android:textSize="25dp"
             android:textColor="#FFFFFF"/>
+
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/content2"
         android:layout_width="match_parent"

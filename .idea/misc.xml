@@ -9,7 +9,7 @@
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/drawable/text_style.xml" value="0.22" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_jjsong.xml" value="0.22826086956521738" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
-        <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_music.xml" value="0.16" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/activity_song.xml" value="0.1" />
@@ -22,7 +22,7 @@
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/music_list.xml" value="0.22826086956521738" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/search_main.xml" value="0.25" />
         <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/singer_layout.xml" value="0.1" />
-        <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/singer_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/thundersoftAndroidDemo/Music_list/app/src/main/res/layout/singer_main.xml" value="0.1" />
       </map>
     </option>
   </component>

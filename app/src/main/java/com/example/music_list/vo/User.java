@@ -3,6 +3,7 @@ package com.example.music_list.vo;
 public class User {
     public User() {
     }
+
     public User(String account, String password) {
         this.account = account;
         this.password = password;
@@ -27,3 +28,4 @@ public class User {
         this.password = password;
     }
 }
+

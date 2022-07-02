@@ -4,14 +4,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -22,16 +23,16 @@ import android.widget.TextView;
 
 import com.example.music_list.R;
 import com.example.music_list.Service.MusicService;
-import com.example.music_list.frag.frag1;
+import com.example.music_list.frag.FragOne;
 
 import static java.lang.Integer.parseInt;
 
 public class MusicActivity extends AppCompatActivity implements View.OnClickListener {
+    public String[] musicName = {"knowknow——Mr.Bentley", "刘聪——Hey kong", "梨冻紧/Wiz_H——Follow", "刘聪——单身公寓", "SHE——你曾是少年",
+            "TWICE——Feel Special", "房东的猫——New Boy", "高进——下雪哈尔滨", "刘大拿——匿名的朋友", "True Damages——GIANT", "TWICE——TT"};
+    public static int[] icons = {R.drawable.knowknow, R.drawable.liucong, R.drawable.follow, R.drawable.hotel, R.drawable.young,
+            R.drawable.feelspecial, R.drawable.newboy, R.drawable.snowhaerbin, R.drawable.anoymousfriend, R.drawable.giant, R.drawable.tt};
     //进度条
-    public String[] musicName = {"knowknow——Mr.Bentley","刘聪——Hey kong","梨冻紧/Wiz_H——Follow","刘聪——单身公寓","SHE——你曾是少年",
-            "TWICE——Feel Special","房东的猫——New Boy","高进——下雪哈尔滨","刘大拿——匿名的朋友","True Damages——GIANT","TWICE——TT"};
-    public static int[] icons = {R.drawable.knowknow,R.drawable.liucong,R.drawable.follow,R.drawable.hotel,R.drawable.young,
-            R.drawable.feelspecial,R.drawable.newboy,R.drawable.snowhaerbin,R.drawable.anoymousfriend,R.drawable.giant,R.drawable.tt};
     private static SeekBar sb;
     private static TextView tv_progress, tv_total, name_song;
     //动画
@@ -79,7 +80,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         bindService(intent2, conn, BIND_AUTO_CREATE);//绑定服务
         //为滑动条添加事件监听，每个控件不同果然点击事件方法名都不同
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            //这一行注解是保证API在KITKAT以上的模拟器才能顺利运行，也就是19以上
+            //这一行注解是保证API在KITKAT以上的模拟器才能顺利运行
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -88,6 +89,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
                     animator.pause();//停止播放动画
                 }
             }
+
             @Override
             //滑动条开始滑动时调用
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -107,7 +109,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         String position = intent1.getStringExtra("position");
         //praseInt()就是将字符串变成整数类型
         int i = parseInt(position);
-        iv_music.setImageResource(frag1.icons[i]);
+        iv_music.setImageResource(FragOne.icons[i]);
         //rotation和0f,360.0f就设置了动画是从0°旋转到360°
         animator = ObjectAnimator.ofFloat(iv_music, "rotation", 0f, 360.0f);
         animator.setDuration(10000);//动画旋转一周的时间为10秒
@@ -115,9 +117,10 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         animator.setRepeatCount(-1);//-1表示设置动画无限循环
     }
 
-    //handler机制，可以理解为线程间的通信，我获取到一个信息，然后把这个信息告诉你，就这么简单
-    public static Handler handler = new Handler() {//创建消息处理器对象
+    //handler机制，可以理解为线程间的通信
+    public static Handler handler = new Handler(Looper.myLooper()) {//创建消息处理器对象
         //在主线程中处理从子线程发送过来的消息
+        @SuppressLint("SetTextI18n")
         @Override
         public void handleMessage(Message msg) {
             Bundle bundle = msg.getData();//获取从子线程发送过来的音乐播放进度
@@ -184,6 +187,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onClick(View v) {
